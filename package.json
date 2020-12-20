@@ -1,0 +1,35 @@
+{
+  "name": "overwrite",
+  "version": "1.0.0",
+  "description": "Overwrite any book snippet or song lyrics: create a version with your own unique twist.",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "scss": "node-sass src/scss/ --output-style expanded --output public/css/",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ijambro/overwrite.git"
+  },
+  "keywords": [
+    "book",
+    "poem",
+    "text",
+    "override",
+    "author"
+  ],
+  "author": "Jake Palmer",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/ijambro/overwrite/issues"
+  },
+  "homepage": "https://github.com/ijambro/overwrite#readme",
+  "dependencies": {
+    "ejs": "^3.1.5",
+    "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "node-sass": "^5.0.0"
+  }
+}

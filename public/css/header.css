@@ -1,0 +1,9 @@
+nav .brand-logo {
+  padding-left: 0.75rem;
+  /* Match the padding on the row and col in the footer */
+}
+
+nav .brand-logo i.material-icons {
+  margin-right: 0px;
+  /* Condense the icons within the "Over(icons)write" logo */
+}

@@ -1,0 +1,41 @@
+<link href="/css/header.css" rel="stylesheet" type="text/css">
+
+<header>
+    <nav>
+        <div class="nav-wrapper orange darken-4">
+            <a href="/" class="brand-logo">
+                <span class="left">Over</span>
+                <i class="large material-icons">book</i>
+                <i class="large material-icons">edit</i>
+                write
+            </a>
+            <a href="#" data-target="sidenav" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+
+            <ul id="nav-mobile" class="right hide-on-med-and-down">
+                <li><a href="books"><i class="material-icons right">book</i>Books</a></li>
+                <li><a href="songs"><i class="material-icons right">queue_music</i>Songs</a></li>
+                <li><a href="overwrites"><i class="material-icons right">edit</i>All Overwrites</a></li>
+                <li><a href="about"><i class="material-icons right">info</i>About</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <ul id="sidenav" class="sidenav">
+        <li><a href="books"><i class="material-icons right">book</i>Books</a></li>
+        <li><a href="songs"><i class="material-icons right">queue_music</i>Songs</a></li>
+        <li><a href="overwrites"><i class="material-icons right">edit</i>All Overwrites</a></li>
+        <li><a href="about"><i class="material-icons right">info</i>About</a></li>
+    </ul>
+
+</header>
+
+<script type="text/javascript">
+
+document.addEventListener('DOMContentLoaded', function() {
+    var elems = document.querySelectorAll('.sidenav');
+    
+    var options = {};
+    var instances = M.Sidenav.init(elems, options);
+});
+
+</script>
