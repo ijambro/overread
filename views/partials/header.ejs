@@ -1,5 +1,15 @@
 <link href="/css/header.css" rel="stylesheet" type="text/css">
 
+<%  const ACTIVE = "active";
+    let isSelectedTabBooks = "", isSelectedTabSongs = "", isSelectedTabOverwrites = "";
+    if (selectedTab) {
+        switch(selectedTab) {
+            case "books": isSelectedTabBooks = ACTIVE; break;
+            case "songs": isSelectedTabSongs = ACTIVE; break;
+            case "overwrites": isSelectedTabOverwrites = ACTIVE; break;
+        }
+    }
+%>
 <header>
     <nav>
         <div class="nav-wrapper orange darken-4">
@@ -12,19 +22,19 @@
             <a href="#" data-target="sidenav" class="sidenav-trigger"><i class="material-icons">menu</i></a>
 
             <ul id="nav-mobile" class="right hide-on-med-and-down">
-                <li><a href="books"><i class="material-icons right">book</i>Books</a></li>
-                <li><a href="songs"><i class="material-icons right">queue_music</i>Songs</a></li>
-                <li><a href="overwrites"><i class="material-icons right">edit</i>All Overwrites</a></li>
-                <li><a href="about"><i class="material-icons right">info</i>About</a></li>
+                <li class="<%- isSelectedTabBooks %>"><a href="books"><i class="material-icons right">book</i>Books</a></li>
+                <li class="<%- isSelectedTabSongs %>"><a href="songs"><i class="material-icons right">queue_music</i>Songs</a></li>
+                <li class="<%- isSelectedTabOverwrites %>"><a href="overwrites"><i class="material-icons right">edit</i>All Overwrites</a></li>
+                <!-- <li><a href="about"><i class="material-icons right">info</i>About</a></li> -->
             </ul>
         </div>
     </nav>
 
     <ul id="sidenav" class="sidenav">
-        <li><a href="books"><i class="material-icons right">book</i>Books</a></li>
-        <li><a href="songs"><i class="material-icons right">queue_music</i>Songs</a></li>
-        <li><a href="overwrites"><i class="material-icons right">edit</i>All Overwrites</a></li>
-        <li><a href="about"><i class="material-icons right">info</i>About</a></li>
+        <li class="<%- isSelectedTabBooks %>"><a href="books"><i class="material-icons right">book</i>Books</a></li>
+        <li class="<%- isSelectedTabSongs %>"><a href="songs"><i class="material-icons right">queue_music</i>Songs</a></li>
+        <li class="<%- isSelectedTabOverwrites %>"><a href="overwrites"><i class="material-icons right">edit</i>All Overwrites</a></li>
+        <!-- <li><a href="about"><i class="material-icons right">info</i>About</a></li> -->
     </ul>
 
 </header>
