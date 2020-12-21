@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include("../partials/head"); %>
+    <!-- <link href="/css/create-overwrite.css" rel="stylesheet" type="text/css"> -->
+</head>
+<body class="container">
+
+<%- include("../partials/header", { selectedTab: "overwrites" }); %>
+
+<main>
+
+    <div class="row">
+        <form class="col s12" action="/overwrites" method="POST">
+            <div class="row">
+                <div class="input-field col s12">
+                    <i class="material-icons prefix">account_circle</i>
+                    <input placeholder="Your user name" id="username" type="text" class="">
+                    <label for="username">Your user name</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s12">
+                    <i class="material-icons prefix">book</i>
+                    <input placeholder="0123456789" id="isbn" type="number" class="validate">
+                    <label for="isbn">Book ISBN</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s12">
+                    <input placeholder="Labels" id="labels" type="text" class="">
+                    <label for="labels">Tag your overwrite</label>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="input-field col s12">
+                    <textarea id="overwrite-original" class="materialize-textarea"></textarea>
+                    <label for="overwrite-original">Original text to overwrite</label>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="input-field col s12">
+                    <textarea id="overwrite-update" class="materialize-textarea"></textarea>
+                    <label for="overwrite-update">Your updated text to overwrite</label>
+                </div>
+            </div>
+            
+            <div class="row">
+                <button class="btn waves-effect waves-light" type="submit" name="action">Submit
+                    <i class="material-icons right">send</i>
+                </button>
+            </div>
+
+        </form>
+      </div>
+ 
+</main>
+
+<%- include("../partials/footer"); %>
+
+</body>
+</html>

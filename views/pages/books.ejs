@@ -9,21 +9,37 @@
 <%- include("../partials/header", { selectedTab: "books" }); %>
 
 <main>
-    <h3>All Books</h3>
-    <a class="btn-floating btn-large waves-effect waves-light teal lighten-2 hoverable right"><i class="material-icons">add</i></a>
-
     <h6>Select a book to read all of its overwrites</h6>
+ 
+    <a href="/add-book" class="btn-floating btn-large waves-effect waves-light teal lighten-2 hoverable right"><i class="material-icons">add</i></a>
     
-    <form id="searchform left">
-        <div class="input-field">
-            <input id="search" type="search" required>
-            <label class="label-icon" for="search"><i class="material-icons">search</i></label>
-            <i class="material-icons">close</i>
+    <div class="row">
+        <div class="col s6 m4 l3">
+            <div class="hoverable card">
+                <div class="card-image">
+                    <img src="https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1595440101l/53490148._SX318_.jpg">
+                    <!-- <span class="card-title">The Ickabog</span> -->
+                    <a class="btn-floating halfway-fab waves-effect waves-light teal hoverable"><i class="material-icons">edit</i></a>
+                </div>
+                <div class="card-content">
+                    <p>The Ickabog (by JK Rowling)</p>
+                </div>
+            </div>
         </div>
-    </form>
 
-    <div class="card-panel teal lighten-2 hoverable">
-        <br>Some text deserves an overwrite.
+        <div class="col s6 m4 l3">
+            <div class="hoverable card">
+                <div class="card-image">
+                    <img src="https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1388546395l/263622.jpg">
+
+                    <a class="btn-floating halfway-fab waves-effect waves-light teal hoverable"><i class="material-icons">edit</i></a>
+                </div>
+                <div class="card-content">
+                    <p>The Berenstain Bears and the Green-Eyed Monster (by Stan Berenstain, Jan Berenstain)</p>
+                </div>
+            </div>
+        </div>
+
     </div>
  
 </main>

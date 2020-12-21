@@ -69,18 +69,34 @@ app.get("/about", printReq, (req, res) => {
     res.render("pages/about");
 });
 
-//API ROUTES
+// CREATING SOURCES
 
-// app.get("/source", printReq, (req, res) => {
-//     console.log(req.body);
-//     res.status(200);
-//     res.send(sourcesData);
-// });
+app.get("/add-book", printReq, (req, res) => {
+    res.render("pages/create-source");
+});
 
-// app.post("/source", printReq, (req, res) => {
-//     console.log(req.body);
-//     res.status(200);
-//     res.send("DUMMY: source created!");
-// });
+app.get("/add-song", printReq, (req, res) => {
+    res.render("pages/create-source");
+});
+
+app.post("/books", printReq, (req, res) => {
+    console.log("BOOK FORM SUBMITTED!");
+    res.render("pages/books", {
+        // "sourcesData": sourcesData
+    });
+});
+
+// CREATING OVERWRITES
+
+app.get("/add-overwrite", printReq, (req, res) => {
+    res.render("pages/create-overwrite");
+});
+
+app.post("/overwrites", printReq, (req, res) => {
+    console.log("OVERWRITE FORM SUBMITTED!");
+    res.render("pages/overwrites", {
+        // "overwritesData": overwritesData
+    });
+});
 
 app.listen(port, () => console.log("Express.js server is listening on port " + port));

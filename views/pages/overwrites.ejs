@@ -2,22 +2,23 @@
 <html lang="en">
 <head>
     <%- include("../partials/head"); %>
-    <link href="/css/overwrites.css" rel="stylesheet" type="text/css">
+    <!-- <link href="/css/overwrites.css" rel="stylesheet" type="text/css"> -->
 </head>
 <body class="container">
 
 <%- include("../partials/header", { selectedTab: "overwrites" }); %>
 
 <main>
-    <h3>All Overwrites</h3>
-    <h6>See the top overwrites from our community</h6>
-    
-    <a class="btn-floating btn-large waves-effect waves-light red"><i class="material-icons">add</i></a>
-    
-    <div class="card-panel teal lighten-2 hoverable">
-        <br>Some text deserves an overwrite.
-    </div>
+    <h6>See the top overwrites from our community, and write your own!</h6>
  
+    <a href="/add-overwrite" class="btn-floating btn-large waves-effect waves-light teal lighten-2 hoverable right"><i class="material-icons">add</i></a>
+    
+    <div class="container">
+        <div class="card-panel orange lighten-2">
+            <p>No overwrites were found in our library.</p>
+            <p>Our system is under construction and not yet saving new overwrites.</p>
+        </div>
+    </div>
 </main>
 
 <%- include("../partials/footer"); %>
