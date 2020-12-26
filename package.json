@@ -13,11 +13,8 @@
     "url": "git+https://github.com/ijambro/overwrite.git"
   },
   "keywords": [
-    "book",
-    "poem",
-    "text",
-    "override",
-    "author"
+    "book", "poem", "song", "text",
+    "edit", "overread", "override", "overwrite"
   ],
   "author": "Jake Palmer",
   "license": "Apache-2.0",
