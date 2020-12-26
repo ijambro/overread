@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include("../partials/head"); %>
+    <link href="/css/sources.css" rel="stylesheet" type="text/css">
+</head>
+<body class="container">
+
+<%- include("../partials/header", { selectedTab: "sources" }); %>
+
+<main>
+    <h6>Select a book to read all of its overwrites</h6>
+ 
+    <a title="Add a new text to our catalog" href="/sources/add" class="btn-floating btn-large waves-effect waves-light teal lighten-2 hoverable right"><i class="material-icons">add</i></a>
+    
+    <div class="row">
+        <div class="col s6 m4 l4">
+            <div class="hoverable medium card sticky-action">
+                <div class="card-image">
+                    <img class="activator" src="https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1595440101l/53490148._SX318_.jpg">
+                    <!-- Text can overlay the cover image -->
+                    <!-- <span class="card-title">The Ickabog</span> -->
+                    <!-- Moved to card action -->
+                    <!-- <a href="/sources/12345" class="btn-floating halfway-fab waves-effect waves-light teal hoverable"><i class="material-icons">edit</i></a> -->
+                </div>
+                <div class="card-content">
+                    <span class="card-title activator grey-text text-darken-4">The Ickabog<i class="material-icons right">more_vert</i></span>
+                    <p>by JK Rowling</p>
+                </div>
+                <div class="card-action">
+                    <a href="/sources/1">View Overwrites</a>
+                </div>
+                <div class="card-reveal">
+                    <span class="card-title grey-text text-darken-4">The Ickabog<i class="material-icons right">close</i></span>
+                    <p>Author: JK Rowling</p>
+                    <p>Type: Book</p>
+                    <p>Genre: Young adult fiction</p>
+                    <p>Added to catalog by Username on 12/25/20</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col s6 m4 l4">
+            <div class="hoverable medium card sticky-action">
+                <div class="card-image">
+                    <img class="activator" src="https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1388546395l/263622.jpg">
+                </div>
+                <div class="card-content">
+                    <span class="card-title activator grey-text text-darken-4">The Berenstain Bears and the Green-Eyed Monster</span>
+                     <p>by Stan Berenstain, Jan Berenstain</p>
+                </div>
+                <div class="card-action">
+                    <a href="/sources/2">View Overwrites</a>
+                </div>
+            
+                <div class="card-reveal">
+                    <span class="card-title grey-text text-darken-4">The Berenstain Bears and the Green-Eyed Monster<i class="material-icons right">close</i></span>
+                    <p>Author: Stan Berenstain, Jan Berenstain</p>
+                    <p>Type: Book</p>
+                    <p>Genre: Children's</p>
+                    <p>Added to catalog by Username on 12/25/20</p>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+ 
+</main>
+
+<%- include("../partials/footer"); %>
+
+</body>
+</html>

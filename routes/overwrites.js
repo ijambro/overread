@@ -16,6 +16,7 @@ router.get("/", (req, res) => {
 });
 
 router.get("/:id(\\d+)", (req, res) => {
+    const id = req.params.id;
     console.log("Requested overwrite by ID = " + id);
     let overwriteData = overwritesData.filter(o => {
         return o.id === id;
