@@ -1,6 +1,7 @@
 const express = require("express");
 const overwritesRouter = require("./routes/overwrites.js");
 const sourcesRouter = require("./routes/sources.js");
+const libraryRouter = require("./routes/library.js");
 
 console.log("Preparing to launch Express.js server");
 
@@ -43,6 +44,7 @@ app.get("/about", (req, res) => {
 // Routers for "mini-apps"
 app.use("/sources", sourcesRouter);
 app.use("/overwrites", overwritesRouter);
+app.use("/library", libraryRouter);
 
 app.listen(port, () => console.log("Express.js server is listening on port " + port));
 
