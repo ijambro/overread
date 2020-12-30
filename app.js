@@ -18,13 +18,13 @@ app.use(express.static(__dirname + '/public'));
 app.use(function(req, res, next) {
     console.log(new Date() + " Request: " + req.url);
     if (!isObjectEmpty(req.query)) {
-        console.log(" - Query: " + req.query);
+        console.log(" - Query: " + JSON.stringify(req.query));
     }
     if (!isObjectEmpty(req.params)) {
-        console.log(" - Params: " + req.params);
+        console.log(" - Params: " + JSON.stringify(req.params));
     }
     if (!isObjectEmpty(req.body)) {
-        console.log(" - Body: " + req.body);
+        console.log(" - Body: " + JSON.stringify(req.body));
     }
     next();
 });

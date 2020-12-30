@@ -1,1 +1,35 @@
-[]
+[
+    {
+        "id": 1000,
+        "type": "book",
+        "title": "The Ickabog",
+        "author": "JK Rowling",
+        "genre": "Children's",
+        "coverImageUrl": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1595440101l/53490148._SX318_.jpg",
+        "userName": "Jakeapotamus",
+        "timestamp": "Last Thursday"
+    },
+    {
+        "id": 1001,
+        "type": "poem",
+        "title": "A Visit from St. Nicholas",
+        "author": "Clement Clarke Moore or Major Henry Livingston, Jr.",
+        "genre": "Christmas",
+        "coverImageUrl": "http://2.bp.blogspot.com/-GqUUQVAqKnw/TszSxLPnlTI/AAAAAAAABK0/1reThP5vjro/s1600/Santa-Claus-Photoshop.jpg",
+        "userName": "Jakeapotamus",
+        "timestamp": "Yesterday"
+    },
+    {
+        "id": 1002,
+        "type": "song",
+        "title": "Harder Better Faster Stronger",
+        "author": "Daft Punk",
+        "genre": "Dance",
+        "coverImageUrl_unsafe": "https://t2.genius.com/unsafe/440x440/https%3A%2F%2Fimages.genius.com%2F67893ce3db52f50e6823458b141d6420.1000x1000x1.jpg",
+        "coverImageUrl": "https://images.genius.com/67893ce3db52f50e6823458b141d6420.1000x1000x1.jpg",
+        "userName": "Jakeapotamus",
+        "timestamp": "Today",
+        "text_plain":"Work it, make it, Do it, makes us, Harder, better, Faster, stronger, More than, hour, Hour, never, Ever, after, Work is, over, Work it, make it, Do it, makes us, Harder, better, Faster, stronger",
+        "text_html": "Faster, stronger<br>Work it, make it<br>Do it, makes us<br>Harder, better<br>Faster, stronger<br>More than, hour<br>Hour, never<br>Ever, after<br>Work is, over<br>Work it, make it<br>Do it, makes us<br>Harder, better<br>"
+    }
+]

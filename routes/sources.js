@@ -13,15 +13,18 @@ const sourcesData = require("../data/sources.json");
 //SHOW ALL SOURCES BY TYPE
 
 router.get("/", (req, res) => {
-    let type = req.params.type;
+    let type = req.query.type;
     console.log("Requested sources with type = " + type);
-    let sourceData = sourcesData.filter(t => {
-        return t.type === t;
-    });
-    console.log("Filtered to sources JSON = " + JSON.stringify(sourcesData));
+    let filteredSourcesData = sourcesData;
+    if (type) {
+        filteredSourcesData = sourcesData.filter(s => {
+            return s.type === type;
+        });
+        console.log("Filtered to sources JSON = " + JSON.stringify(filteredSourcesData));
+    }
 
     res.render("pages/sources", {
-        "sourcesData": sourcesData
+        "sourcesData": filteredSourcesData
     });
 });
 
