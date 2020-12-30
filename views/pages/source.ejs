@@ -9,8 +9,6 @@
 <%- include("../partials/header", { selectedTab: "sources" }); %>
 
 <main>
-    <h2>A Visit from St. Nicholas</h2>
- 
     <div class="row">
         <div class="input-field col s12 m12 l5">
             <select class="">
@@ -24,14 +22,17 @@
             <!-- TODO: Handle action via JavaScript: POST /library/add?sourceId=12345 -->
             <a class="btn waves-effect waves-light teal hoverable"><i class="material-icons left">library_add</i>Add to Library</a>
 
-            <a href="/overwrites/add?sourceId=12345" class="btn waves-effect waves-light teal hoverable"><i class="material-icons left">edit</i>Overwrite this</a>
+            <!--href="/overwrites/add?sourceId=12345"-->
+            <a onclick="onOverwriteThis()" class="btn waves-effect waves-light teal hoverable"><i class="material-icons left">edit</i>Overwrite this</a>
         </div>
     </div>
 
     <div class="row">
         <div class="col s12 m12 l6">
+            <h3>A Visit from St. Nicholas</h3>
             <p>by Clement Clarke Moore or Major Henry Livingston, Jr.</p>
-            <pre>
+                   
+            <pre id="versionText">
 'Twas the night before Christmas, when all through the house
 Not a creature was stirring, not even a mouse;
 The stockings were hung by the chimney with care,
@@ -103,6 +104,16 @@ But I heard him exclaim, ere he drove out of sight,
 HAPPY CHRISTMAS TO ALL, AND TO ALL A GOOD-NIGHT!
             </pre>
         </div>
+
+        <div class="col s12 m12 l6 teal">
+            <form method="POST">
+                <div class="input-field col s12">
+                    <textarea id="overwriteText" class="materialize-textarea"></textarea>
+                    <label for="overwriteText">Your new version:</label>
+                  </div>
+            </form>
+        </div>
+
     </div>
  
 </main>
@@ -119,7 +130,12 @@ document.addEventListener('DOMContentLoaded', function() {
     var options = {};
     var instances = M.FormSelect.init(elems, options);
 });
-    
+
+function onOverwriteThis() {
+    let versionText = document.getElementById("versionText").innerText;
+    overwriteText.innerText = versionText;
+}
+
 </script>
 
 </html>
