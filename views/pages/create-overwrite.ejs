@@ -8,6 +8,8 @@
 
 <%- include("../partials/header", { selectedTab: "overwrites" }); %>
 
+<!-- Uses EJS var sourceData to render the provided source dynamically -->
+
 <main>
 
     <div class="row">
@@ -16,34 +18,27 @@
                 <div class="input-field col s12">
                     <i class="material-icons prefix">account_circle</i>
                     <input placeholder="Your user name" id="username" type="text" class="">
-                    <label for="username">Your user name</label>
+                    <label for="username">Your User Name</label>
                 </div>
             </div>
             <div class="row">
                 <div class="input-field col s12">
                     <i class="material-icons prefix">book</i>
-                    <input placeholder="0123456789" id="isbn" type="number" class="validate">
-                    <label for="isbn">Book ISBN</label>
+                    <input id="title" value="<%- sourceData.title %>" type="text" class="">
+                    <label for="title">Your New Title</label>
                 </div>
             </div>
             <div class="row">
                 <div class="input-field col s12">
-                    <input placeholder="Labels" id="labels" type="text" class="">
-                    <label for="labels">Tag your overwrite</label>
-                </div>
-            </div>
-
-            <div class="row">
-                <div class="input-field col s12">
-                    <textarea id="overwrite-original" class="materialize-textarea"></textarea>
-                    <label for="overwrite-original">Original text to overwrite</label>
+                    <input placeholder="Labels: Parody, Satire, Kid-Friendly, etc" id="labels" type="text" class="">
+                    <label for="labels">Tag your Overwrite</label>
                 </div>
             </div>
 
             <div class="row">
                 <div class="input-field col s12">
-                    <textarea id="overwrite-update" class="materialize-textarea"></textarea>
-                    <label for="overwrite-update">Your updated text to overwrite</label>
+                    <textarea id="overwrite-text" class="materialize-textarea"><%- sourceData.text_plain %></textarea>
+                    <label for="overwrite-text">Your Overwrite to the text</label>
                 </div>
             </div>
             

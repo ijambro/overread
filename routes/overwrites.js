@@ -1,6 +1,8 @@
 const express = require("express");
 const router = express.Router();
 
+const Source = require("../models/Source.js");
+const sourcesData = require("../data/sources.json");
 const Overwrite = require("../models/Overwrite.js");
 const overwritesData = require("../data/overwrites.json");
 
@@ -29,7 +31,19 @@ router.get("/:id(\\d+)", (req, res) => {
 });
 
 router.get("/add", (req, res) => {
-    res.render("pages/create-overwrite");
+    const sourceId = req.query.sourceId;
+    console.log("Requested to overwrite source with id = " + sourceId);
+    let sourceData = {};
+    if (sourceId) {
+        sourceData = sourcesData.find(s => {
+            return s.id == sourceId;
+        });
+        console.log("Found source JSON = " + JSON.stringify(sourceData));    
+    }
+
+    res.render("pages/create-overwrite", {
+        "sourceData": sourceData
+    });
 });
 
 router.post("/", (req, res) => {
