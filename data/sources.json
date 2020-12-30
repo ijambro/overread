@@ -7,7 +7,9 @@
         "genre": "Children's",
         "coverImageUrl": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1595440101l/53490148._SX318_.jpg",
         "userName": "Jakeapotamus",
-        "timestamp": "Last Thursday"
+        "timestamp": "Last Thursday",
+        "text_plain": "Here is a snippet of a bit of The Ickabog, which probably involves a young wizard or some ilk casting some magic spells or some nonsense.",
+        "text_html": "Here is a snippet of a bit of The Ickabog, which probably involves a young wizard or some ilk casting some <strong>magic spells</strong> or some nonsense."
     },
     {
         "id": 1001,
@@ -17,7 +19,9 @@
         "genre": "Christmas",
         "coverImageUrl": "http://2.bp.blogspot.com/-GqUUQVAqKnw/TszSxLPnlTI/AAAAAAAABK0/1reThP5vjro/s1600/Santa-Claus-Photoshop.jpg",
         "userName": "Jakeapotamus",
-        "timestamp": "Yesterday"
+        "timestamp": "Yesterday",
+        "text_plain": "'Twas the night before Christmas, when all through the house, Not a creature was stirring, not even a mouse; The stockings were hung by the chimney with care, In hopes that St. Nicholas soon would be there.",
+        "text_html": "'Twas the night before Christmas, when all through the house,<br>Not a creature was stirring, not even a mouse;<br>The stockings were hung by the chimney with care,<br>In hopes that St. Nicholas soon would be there."
     },
     {
         "id": 1002,

@@ -33,10 +33,13 @@ router.get("/", (req, res) => {
 router.get("/:id(\\d+)", (req, res) => {
     const id = req.params.id;
     console.log("Requested source by ID = " + id);
-    let sourceData = sourcesData.filter(s => {
-        return s.id === id;
-    });
-    console.log("Filtered to sources JSON = " + JSON.stringify(sourceData));
+    let sourceData = {};
+    if (id) {
+        sourceData = sourcesData.find(s => {
+            return s.id == id;
+        });
+        console.log("Found source JSON = " + JSON.stringify(sourceData));    
+    }
 
     res.render("pages/source", {
         "sourceData": sourceData
