@@ -8,7 +8,9 @@
     <div class="col s6 m4 l4">
         <div class="hoverable medium card sticky-action">
             <div class="card-image">
-                <img class="activator" src="<%- sourceData.coverImageUrl %>">
+                <a href="/sources/<%- sourceData.id %>">
+                    <img class="" src="<%- sourceData.coverImageUrl %>">
+                </a>
                 <!-- Can overlay text on the cover image -->
                 <!-- <span class="card-title">Book title here</span> -->
                 <!-- Can add floating action button, although its bottom half is hidden when the card div has a size class (medium, large) -->
@@ -19,7 +21,7 @@
                     <p>by <%- sourceData.author %></p>
             </div>
             <div class="card-action">
-                <a href="/sources/<%- sourceData.id %>">View Overwrites</a>
+                <a href="/sources/<%- sourceData.id %>">View</a>
             </div>
             <div class="card-reveal">
                 <span class="card-title grey-text text-darken-4"><%- sourceData.title %><i class="material-icons right">close</i></span>
