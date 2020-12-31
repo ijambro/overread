@@ -27,7 +27,8 @@
             <a class="btn waves-effect waves-light teal hoverable"><i class="material-icons left">library_add</i>Add to Library</a>
 
             <!-- onclick="onOverwriteThis()" -->
-            <a href="/overwrites/add?sourceId=<%- sourceData.id %>" class="btn waves-effect waves-light teal hoverable"><i class="material-icons left">edit</i>Overwrite this</a>
+            <!-- /overwrites/add?sourceId=<%- sourceData.id %> -->
+            <a href="/sources/<%- sourceData.id %>/overwrites/add" class="btn waves-effect waves-light teal hoverable"><i class="material-icons left">edit</i>Overwrite this</a>
         </div>
     </div>
 

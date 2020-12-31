@@ -6,17 +6,14 @@ const sourcesData = require("../data/sources.json");
 const Overwrite = require("../models/Overwrite.js");
 const overwritesData = require("../data/overwrites.json");
 
-// const controller =
-// router.post('/users/create', controller.create)
-// router.put('/users/:userId', controller.update)
-// router.get('/users', controller.getAll)
-
+//Unused
 router.get("/", (req, res) => {
     res.render("pages/overwrites", {
         "overwritesData": overwritesData
     });
 });
 
+//Unused
 router.get("/:id(\\d+)", (req, res) => {
     const id = req.params.id;
     console.log("Requested overwrite by ID = " + id);
@@ -30,6 +27,7 @@ router.get("/:id(\\d+)", (req, res) => {
     });
 });
 
+//Deprecated - using /source/:id/overwrites/add instead
 router.get("/add", (req, res) => {
     const sourceId = req.query.sourceId;
     console.log("Requested to overwrite source with id = " + sourceId);
@@ -46,6 +44,7 @@ router.get("/add", (req, res) => {
     });
 });
 
+//Deprecated - using /source/:id/overwrites instead
 router.post("/", (req, res) => {
     console.log("OVERWRITE FORM SUBMITTED!");
     res.render("pages/overwrites", {

@@ -46,18 +46,54 @@ router.get("/:id(\\d+)", (req, res) => {
     });
 });
 
-// SHOW "ADD SOURCE" FORM
+// SHOW "CREATE SOURCE" FORM
 
 router.get("/add", (req, res) => {
     res.render("pages/create-source");
 });
 
-// SUBMIT "ADD SOURCE" FORM
+// SUBMIT "CREATE SOURCE" FORM
 
 router.post("/", (req, res) => {
-    console.log("SOURCE FORM SUBMITTED!");
+    console.log("Submitted: Create Source");
     res.render("pages/sources", {
         "sourcesData": sourcesData
+    });
+});
+
+// SHOW "CREATE OVERWRITE" FORM (for given source)
+
+router.get("/:id(\\d+)/overwrites/add", (req, res) => {
+    const id = req.params.id;
+    console.log("Create Overwrite of source with ID = " + id);
+    let sourceData = {};
+    if (id) {
+        sourceData = sourcesData.find(s => {
+            return s.id == id;
+        });
+        console.log("Found source JSON = " + JSON.stringify(sourceData));    
+    }
+
+    res.render("pages/create-overwrite", {
+        "sourceData": sourceData
+    });
+});
+
+// SUBMIT "CREATE OVERWRITE" FORM (for given source)
+
+router.post("/:id(\\d+)/overwrites", (req, res) => {
+    const id = req.params.id;
+    console.log("Submitted: Create Overwrite of source with ID = " + id);
+    let sourceData = {};
+    if (id) {
+        sourceData = sourcesData.find(s => {
+            return s.id == id;
+        });
+        console.log("Found source JSON = " + JSON.stringify(sourceData));    
+    }
+
+    res.render("pages/source", {
+        "sourceData": sourceData
     });
 });
 
