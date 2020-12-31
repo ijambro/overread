@@ -24,7 +24,8 @@ router.get("/", (req, res) => {
     }
 
     res.render("pages/sources", {
-        "sourcesData": filteredSourcesData
+        "sourcesData": filteredSourcesData,
+        "sourceType": type
     });
 });
 
