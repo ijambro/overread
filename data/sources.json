@@ -35,5 +35,17 @@
         "timestamp": "Today",
         "text_plain":"Work it, make it, Do it, makes us, Harder, better, Faster, stronger, More than, hour, Hour, never, Ever, after, Work is, over, Work it, make it, Do it, makes us, Harder, better, Faster, stronger",
         "text_html": "Faster, stronger<br>Work it, make it<br>Do it, makes us<br>Harder, better<br>Faster, stronger<br>More than, hour<br>Hour, never<br>Ever, after<br>Work is, over<br>Work it, make it<br>Do it, makes us<br>Harder, better<br>"
+    },
+    {
+        "id": 1003,
+        "type": "song",
+        "title": "Twinkle Twinkle Little Star",
+        "author": "Jane Taylor",
+        "genre": "Children's",
+        "coverImageUrl": "https://image.slidesharecdn.com/twinkletwinklelittlestarstory-131117131612-phpapp02/95/twinkle-twinkle-little-star-story-1-638.jpg?cb=1418698046",
+        "userName": "Jakeapotamus",
+        "timestamp": "Last Week",
+        "text_plain": "Twinkle, twinkle, little star, How I wonder what you are! Up above the world so high, Like a diamond in the sky.",
+        "text_html": "Twinkle, twinkle, little star,<br>How I wonder what you are!<br>Up above the world so high,<br>Like a diamond in the sky."
     }
 ]

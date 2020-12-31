@@ -1,1 +1,28 @@
-[]
+[
+    {
+        "id": 500,
+        "sourceId": 1003,
+        "parentId": null,
+        "type": "parody",
+        "title": "Tinkle Tinkle Little Star",
+        "genre": "Children's",
+        "userName": "Jakeapotamus",
+        "timestamp": "Earlier today",
+        "text_plain": "Tinkle, tinkle, little star, How you pee the way you are! Up above the potty so high, Like a diaper in the sky.",
+        "text_html": "Tinkle, tinkle, little star,<br>How you pee the way you are!<br>Up above the potty so high,<br>Like a diaper in the sky.",
+        "description": "This is a silly version to sing while potty-training your youngster.  I'm not very proud of it.  Please feel free to improve it!"
+    },
+    {
+        "id": 501,
+        "sourceId": 1003,
+        "parentId": null,
+        "type": "parody",
+        "title": "Twinkle Twinkle Little Starfruit",
+        "genre": "Children's",
+        "userName": "Jakeapotamus",
+        "timestamp": "Earlier today",
+        "text_plain": "Twinkle, twinkle, little starfruit, How I wonder what you are! At the market priced so high, Like a diamond I won't buy.",
+        "text_html": "Tinkle, tinkle, little starfruit,<br>How I wonder what you are!<br>At the market priced so high,<br>Like a diamond I won't buy.",
+        "description": "A humble ode to the mysterious starfruit"
+    }
+]
