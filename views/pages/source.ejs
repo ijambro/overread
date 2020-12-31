@@ -13,16 +13,24 @@
 <main>
     <br>
     <div class="row">
-        <div class="input-field col s12 m12 l5">
+        <!-- <div class="input-field col s12 m12 l5">
             <select class="">
-                <option value="original" selected>Original Version</option>
+                <option value="original" selected>Original Version<span class="new badge">2 Overwrites</span></option>
                 <option value="98765">First Overwrite (Parody)</option>
                 <option value="98765">Second Overwrite (Kid-Friendly)</option>
             </select>
             <label>Select a version of the text</label>
-        </div>
+        </div> -->
 
-        <div class="col s12 m12 l7">   
+
+        <div class="col s12">   
+            <ul id="version-dropdown" class="dropdown-content">
+                <li><a href="#!">Original Version<span class="new badge">2</span></a></li>
+                <li><a href="#!">First Overwrite (Parody)</a></li>
+                <li><a href="#!">Second Overwrite (Kid-Friendly)</a></li>
+            </ul>
+            <a class="btn dropdown-trigger waves-light teal" href="#!" data-target="version-dropdown">Select a version<i class="material-icons right">arrow_drop_down</i></a>        
+    
             <!-- TODO: Handle action via JavaScript: POST /library/add?sourceId=12345 -->
             <a class="btn waves-effect waves-light teal hoverable"><i class="material-icons left">library_add</i>Add to Library</a>
 
@@ -54,6 +62,9 @@ document.addEventListener('DOMContentLoaded', function() {
 
     var options = {};
     var instances = M.FormSelect.init(elems, options);
+
+    elems = document.querySelectorAll('.dropdown-trigger');
+    instances = M.Dropdown.init(elems, options);
 });
 
 </script>
