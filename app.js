@@ -3,6 +3,9 @@ const overwritesRouter = require("./routes/overwrites.js");
 const sourcesRouter = require("./routes/sources.js");
 const libraryRouter = require("./routes/library.js");
 
+const Source = require("./models/Source.js");
+const sourcesData = require("./data/sources.json");
+
 console.log("Preparing to launch Express.js server");
 
 const app = express();
@@ -34,7 +37,7 @@ app.use(function(req, res, next) {
 
 app.get("/", (req, res) => {
     res.render("pages/home", {
-        // "sourcesData": sourcesData
+        "sourcesData": sourcesData
     });
 });
 
