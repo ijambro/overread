@@ -1,13 +1,17 @@
 const express = require("express");
 const router = express.Router();
 
-const libraryData = {};
+const Source = require("../models/Source.js");
+const sourcesData = require("../data/sources.json");
+
+const libraryData = {}; //TODO, for now just return all sourcesData
 
 //SHOW LIBRARY
 
 router.get("/", (req, res) => {
     res.render("pages/library", {
-        "libraryData": libraryData
+        "libraryData": libraryData,
+        "sourcesData": sourcesData
     });
 });
 
