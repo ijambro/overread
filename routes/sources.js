@@ -3,6 +3,8 @@ const router = express.Router();
 
 const Source = require("../models/Source.js");
 const sourcesData = require("../data/sources.json");
+const Overwrite = require("../models/Overwrite.js");
+const overwritesData = require("../data/overwrites.json");
 
 //const controller =
 
@@ -42,8 +44,18 @@ router.get("/:id(\\d+)", (req, res) => {
         console.log("Found source JSON = " + JSON.stringify(sourceData));    
     }
 
+    // Get all overwrites of this source
+    let filteredOverwritesData = {};
+    if (sourceData) { // sourceData will be undefined if there was no id or no matching source
+        filteredOverwritesData = overwritesData.filter(o => {
+            return o.sourceId == id;
+        });
+        console.log("Found " + filteredOverwritesData.length + " overwrites for this source");
+    }
+
     res.render("pages/source", {
-        "sourceData": sourceData
+        "sourceData": sourceData,
+        "overwritesData": filteredOverwritesData,
     });
 });
 

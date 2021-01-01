@@ -25,11 +25,11 @@
 
         <div class="col s12">   
             <ul id="version-dropdown" class="dropdown-content">
-                <li><a href="#!">Original Version<span class="new badge">2</span></a></li>
-                <li><a href="#!">First Overwrite (Parody)</a></li>
-                <li><a href="#!">Second Overwrite (Kid-Friendly)</a></li>
+                <li><a href="#!" onclick="onSelectVersion(0)">Original Version<span class="new badge">2</span></a></li>
+                <li><a href="#!" onclick="onSelectVersion(500)">First Overwrite (Parody)</a></li>
+                <li><a href="#!" onclick="onSelectVersion(501)">Second Overwrite (Kid-Friendly)</a></li>
             </ul>
-            <a class="btn dropdown-trigger waves-light teal" href="#!" data-target="version-dropdown">Select a version<i class="material-icons right">arrow_drop_down</i></a>        
+            <a class="large btn dropdown-trigger waves-light orange" href="#!" data-target="version-dropdown">Select a version<i class="material-icons right">arrow_drop_down</i></a>        
     
             <!-- TODO: Handle action via JavaScript: POST /library/add?sourceId=12345 -->
             <a class="btn waves-effect waves-light teal hoverable"><i class="material-icons left">library_add</i>Add to Library</a>
@@ -42,10 +42,10 @@
 
     <div class="row">
         <div class="col s12 m12 l8">
-            <h3><%- sourceData.title %></h3>
-            <p>by <%- sourceData.author %></p>
+            <h3 id="title"><%- sourceData.title %></h3>
+            <p id="author"><%- sourceData.author %></p>
 
-            <p><%- sourceData.text_html %></p>
+            <p id="text"><%- sourceData.text_html %></p>
         </div>
     </div>
 
@@ -57,15 +57,46 @@
 
 <script type="text/javascript">
 
-document.addEventListener('DOMContentLoaded', function() {
-    var elems = document.querySelectorAll('select');
+// Passing overwritesData from server-side to client-side JavaScript
+var overwritesDataJson = <%- JSON.stringify(overwritesData) %>;
+var overwritesDataArray = eval(overwritesDataJson);
+console.log(overwritesDataArray);
 
-    var options = {};
-    var instances = M.FormSelect.init(elems, options);
+// Remember the default selection: Original Version
+let selectedVersion = 0;
+
+document.addEventListener('DOMContentLoaded', function() {
+    let elems = document.querySelectorAll('select');
+
+    let options = {};
+    let instances = M.FormSelect.init(elems, options);
 
     elems = document.querySelectorAll('.dropdown-trigger');
     instances = M.Dropdown.init(elems, options);
 });
+
+// @param versionId is 0 for the Original Version, otherwise the overwriteId
+function onSelectVersion(versionId) {
+    console.log("Version selected: " + versionId);
+
+    //If different from selectedVersion, change title, author, and text
+    if (versionId === selectedVersion) {
+        console.log("No change to selected version");
+    } else {
+        console.log(overwritesDataArray);
+        let selectedOverwrite = overwritesDataArray.find(o => {
+            return o.id == versionId;
+        });
+        let titleNode = document.getElementById("title");
+        titleNode.innerText = selectedOverwrite.title;
+
+        let authorNode = document.getElementById("author");
+        authorNode.innerText = selectedOverwrite.userName;
+
+        let textNode = document.getElementById("text");
+        textNode.innerHTML = selectedOverwrite.text_html;
+    }
+}
 
 </script>
 
