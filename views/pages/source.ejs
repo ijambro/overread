@@ -25,11 +25,12 @@
 
         <div class="col s12">   
             <ul id="version-dropdown" class="dropdown-content">
-                <li><a href="#!" onclick="onSelectVersion(0)">Original Version<span class="new badge">2</span></a></li>
-                <li><a href="#!" onclick="onSelectVersion(500)">First Overwrite (Parody)</a></li>
-                <li><a href="#!" onclick="onSelectVersion(501)">Second Overwrite (Kid-Friendly)</a></li>
+                <li><a onclick="onSelectVersion(0)">Original<span class="new badge"><%- overwritesData.length %></span></a></li>
+                <% for (let i=0; i < overwritesData.length; i++) { %>
+                    <li><a onclick="onSelectVersion(<%- overwritesData[i].id %>)"><%- overwritesData[i].title %> (<%- overwritesData[i].type %>)</a></li>
+                <% } %>
             </ul>
-            <a class="large btn dropdown-trigger waves-light orange" href="#!" data-target="version-dropdown">Select a version<i class="material-icons right">arrow_drop_down</i></a>        
+            <a class="large btn dropdown-trigger waves-light orange darken-4" href="#!" data-target="version-dropdown">Select a version<i class="material-icons right">arrow_drop_down</i></a>        
     
             <!-- TODO: Handle action via JavaScript: POST /library/add?sourceId=12345 -->
             <a class="btn waves-effect waves-light teal hoverable"><i class="material-icons left">library_add</i>Add to Library</a>
