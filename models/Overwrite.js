@@ -1,7 +1,7 @@
 'use strict';
 
 module.exports = class Overwrite {
-    constructor(id, sourceId, parentId, type, title, genre, userName, timestamp, text_plain, text_html, description) {
+    constructor(id, sourceId, parentId, type, title, genre, userName, text, description) {
         this.id = id;
         this.sourceId = sourceId;
         this.parentId = parentId;
@@ -9,15 +9,17 @@ module.exports = class Overwrite {
         this.title = title;
         this.genre = genre;
         this.userName = userName;
-        this.timestamp = timestamp;
+        this.timestamp = new Date();
         // this.before = before;
         // this.after = after;
         // this.instances = instances;
         // this.page = page;
         // this.line = line;
         // this.char = char;
-        this.text_plain = text_plain;
-        this.text_html = text_html;
+        
+        this.text_plain = text;
+        this.text_html = text.replace(/\r\n/g, "<br>");
+        
         this.description = description;
     }
 

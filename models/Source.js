@@ -1,21 +1,25 @@
 'use strict';
 
-var Source = function (data) {
-    this.data = data;
-};
- 
-Source.prototype.data = {};
+module.exports = class Source {
+    constructor(id, type, title, author, genre, coverImageUrl, userName, text) {
+        this.id = id;
+        this.type = type;
+        this.title = title;
+        this.author = author;
+        this.genre = genre;
+        this.coverImageUrl = coverImageUrl;
+        this.userName = userName;
+        this.timestamp = new Date();
 
-Source.prototype.get = function (name) {
-    return this.data[name];
-};
+        this.text_plain = text;
+        this.text_html = text.replace(/\r\n/g, "<br>");
+    }
 
-Source.prototype.getData = function () {
-    return this.data;
-};
+    toString() {
+        return JSON.stringify(this);
+    }
 
-Source.prototype.set = function (name, value) {
-    this.data[name] = value;
-};
-
-module.exports = Source;
+    display() {
+        console.log(toString());
+    }
+}

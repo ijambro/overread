@@ -75,23 +75,20 @@ router.post("/", (req, res) => {
 
     let sourceType = req.body["source-type"];
 
-    let newSourceObj = new Source({
-        "id": nextSourceId++,
-        "type": sourceType,
-        "title": req.body.title,
-        "author": req.body.author,
-        "genre": "Children's",
-        "coverImageUrl": req.body.coverImageUrl,
-        "userName": "Jakeapotamus",
-        "timestamp": "Just Now",
-        "text_plain": req.body["source-text"],
-        "text_html": new String(req.body["source-text"]).replace(/\r\n/g, "<br>")
-    });
+    let newSourceObj = new Source(
+        nextSourceId++,     //id
+        sourceType,         //type
+        req.body.title,     //title
+        req.body.author,    //author
+        "Children's",       //genre
+        req.body.coverImageUrl, //coverImageUrl
+        "A Friendly New User",  //userName
+        req.body["source-text"] //text
+    );
     console.log("Creating Source: ");
     console.log(newSourceObj);
-    console.log(newSourceObj.getData());
 
-    sourcesData.push(newSourceObj.getData());
+    sourcesData.push(newSourceObj);
 
     if (sourceType) {
         filteredSourcesData = sourcesData.filter(s => {
@@ -137,20 +134,6 @@ router.post("/:id(\\d+)/overwrites", (req, res) => {
         console.log("Found source JSON = " + JSON.stringify(sourceData));    
     }
 
-    // If we define the Overwrite prototype / function without using "class"
-    // let newOverwriteObj = new Overwrite({
-    //     nextOverwriteId++,
-    //     "sourceId": id,
-    //     "parentId": null,
-    //     "type": req.body.type,
-    //     "title": req.body.title,
-    //     "genre": "Children's",
-    //     "userName": "Userpotamus",
-    //     "timestamp": "Just Now",
-    //     "text_plain": req.body["text"],
-    //     "text_html": new String(req.body["text"]).replace(/\r\n/g, "<br>")
-    // });
-
     let newOverwriteObj = new Overwrite(
         nextOverwriteId++, //id
         id,             //sourceId
@@ -158,14 +141,11 @@ router.post("/:id(\\d+)/overwrites", (req, res) => {
         req.body.type,  //type
         req.body.title, //title
         "Children's",   //genre
-        "Userpotamus",  //userName
-        "Just Now",     //timestamp
-        req.body["text"],   //text_plain
-        new String(req.body["text"]).replace(/\r\n/g, "<br>") //text_html
+        "A Friendly New User",  //userName
+        req.body["text"]    //text
     );
     console.log("Creating Overwrite: ");
     console.log(newOverwriteObj);
-    // console.log(newOverwriteObj.toString());
 
     overwritesData.push(newOverwriteObj);
 
