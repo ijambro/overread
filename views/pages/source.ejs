@@ -15,7 +15,7 @@
     <div class="row">
         <div class="col s12">   
             <ul id="version-dropdown" class="dropdown-content">
-                <li><a onclick="onSelectVersion(0)">Original<span class="new badge"><%- overwritesData.length %></span></a></li>
+                <li><a onclick="onSelectVersion(0)">Original<span class="new badge" data-badge-caption="overwrites"><%- overwritesData.length %></span></a></li>
                 <% for (let i=0; i < overwritesData.length; i++) { %>
                     <li><a onclick="onSelectVersion(<%- overwritesData[i].id %>)"><%- overwritesData[i].title %> (<%- overwritesData[i].type %>)</a></li>
                 <% } %>

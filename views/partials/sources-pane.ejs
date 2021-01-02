@@ -21,7 +21,14 @@
                     <p>by <%- sourceData.author %></p>
             </div>
             <div class="card-action">
-                <a href="/sources/<%- sourceData.id %>">View</a>
+                <a href="/sources/<%- sourceData.id %>">
+                    View
+                    <% if (sourceData.numOverwrites) { %>
+                    <span class="new badge" data-badge-caption="overwrites">
+                        <%- sourceData.numOverwrites %>
+                    </span>
+                    <% } %>
+                </a>
             </div>
             <div class="card-reveal">
                 <span class="card-title grey-text text-darken-4"><%- sourceData.title %><i class="material-icons right">close</i></span>

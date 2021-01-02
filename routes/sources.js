@@ -149,7 +149,13 @@ router.post("/:id(\\d+)/overwrites", (req, res) => {
     console.log("Creating Overwrite: ");
     console.log(newOverwriteObj);
 
+    // "Save" this overwrite!
     overwritesData.push(newOverwriteObj);
+    if (sourceData.numOverwrites) {
+        sourceData.numOverwrites++;
+    } else {
+        sourceData.numOverwrites = 1;
+    }
 
     // Get all overwrites of this source
     let filteredOverwritesData = {};
