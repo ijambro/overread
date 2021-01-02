@@ -59,6 +59,7 @@ router.get("/:id(\\d+)", (req, res) => {
     res.render("pages/source", {
         "sourceData": sourceData,
         "overwritesData": filteredOverwritesData,
+        "sourceType": sourceData["type"]
     });
 });
 
@@ -117,7 +118,8 @@ router.get("/:id(\\d+)/overwrites/add", (req, res) => {
     }
 
     res.render("pages/create-overwrite", {
-        "sourceData": sourceData
+        "sourceData": sourceData,
+        "sourceType": sourceData["type"]
     });
 });
 
@@ -161,6 +163,7 @@ router.post("/:id(\\d+)/overwrites", (req, res) => {
     res.render("pages/source", {
         "sourceData": sourceData,
         "overwritesData": filteredOverwritesData,
+        "sourceType": sourceData["type"]
     });
 });
 
