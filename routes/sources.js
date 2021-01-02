@@ -12,6 +12,9 @@ const overwritesData = require("../data/overwrites.json");
 // router.put('/users/:userId', controller.update)
 // router.get('/users', controller.getAll)
 
+let nextSourceId = 1100;
+let nextOverwriteId = 2100;
+
 //SHOW ALL SOURCES BY TYPE
 
 router.get("/", (req, res) => {
@@ -69,8 +72,37 @@ router.get("/add", (req, res) => {
 
 router.post("/", (req, res) => {
     console.log("Submitted: Create Source");
+
+    let sourceType = req.body["source-type"];
+
+    let newSourceObj = new Source({
+        "id": nextSourceId++,
+        "type": sourceType,
+        "title": req.body.title,
+        "author": req.body.author,
+        "genre": "Children's",
+        "coverImageUrl": req.body.coverImageUrl,
+        "userName": "Jakeapotamus",
+        "timestamp": "Just Now",
+        "text_plain": req.body["source-text"],
+        "text_html": new String(req.body["source-text"]).replace(/\r\n/g, "<br>")
+    });
+    console.log("Creating Source: ");
+    console.log(newSourceObj);
+    console.log(newSourceObj.getData());
+
+    sourcesData.push(newSourceObj.getData());
+
+    if (sourceType) {
+        filteredSourcesData = sourcesData.filter(s => {
+            return s.type === sourceType;
+        });
+        console.log("Filtered to sources JSON = " + JSON.stringify(filteredSourcesData));
+    }
+
     res.render("pages/sources", {
-        "sourcesData": sourcesData
+        "sourcesData": filteredSourcesData,
+        "sourceType": sourceType
     });
 });
 
@@ -105,8 +137,50 @@ router.post("/:id(\\d+)/overwrites", (req, res) => {
         console.log("Found source JSON = " + JSON.stringify(sourceData));    
     }
 
+    // If we define the Overwrite prototype / function without using "class"
+    // let newOverwriteObj = new Overwrite({
+    //     nextOverwriteId++,
+    //     "sourceId": id,
+    //     "parentId": null,
+    //     "type": req.body.type,
+    //     "title": req.body.title,
+    //     "genre": "Children's",
+    //     "userName": "Userpotamus",
+    //     "timestamp": "Just Now",
+    //     "text_plain": req.body["text"],
+    //     "text_html": new String(req.body["text"]).replace(/\r\n/g, "<br>")
+    // });
+
+    let newOverwriteObj = new Overwrite(
+        nextOverwriteId++, //id
+        id,             //sourceId
+        null,           //parentId
+        req.body.type,  //type
+        req.body.title, //title
+        "Children's",   //genre
+        "Userpotamus",  //userName
+        "Just Now",     //timestamp
+        req.body["text"],   //text_plain
+        new String(req.body["text"]).replace(/\r\n/g, "<br>") //text_html
+    );
+    console.log("Creating Overwrite: ");
+    console.log(newOverwriteObj);
+    // console.log(newOverwriteObj.toString());
+
+    overwritesData.push(newOverwriteObj);
+
+    // Get all overwrites of this source
+    let filteredOverwritesData = {};
+    if (sourceData) { // sourceData will be undefined if there was no id or no matching source
+        filteredOverwritesData = overwritesData.filter(o => {
+            return o.sourceId == id;
+        });
+        console.log("Found " + filteredOverwritesData.length + " overwrites for this source");
+    }
+    
     res.render("pages/source", {
-        "sourceData": sourceData
+        "sourceData": sourceData,
+        "overwritesData": filteredOverwritesData,
     });
 });
 
