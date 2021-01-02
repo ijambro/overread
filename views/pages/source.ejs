@@ -34,7 +34,7 @@
     <div class="row">
         <div class="col s12 m12 l8">
             <h3 id="title"><%- sourceData.title %></h3>
-            <p id="author"><%- sourceData.author %></p>
+            <p>by <span id="author"><%- sourceData.author %></span></p>
 
             <p id="text"><%- sourceData.text_html %></p>
         </div>
@@ -47,6 +47,11 @@
 </body>
 
 <script type="text/javascript">
+
+// Passing sourceData from server-side to client-side JavaScript
+var sourceDataJson = <%- JSON.stringify(sourceData) %>;
+var sourceDataObject = eval(sourceDataJson);
+console.log(sourceDataObject);
 
 // Passing overwritesData from server-side to client-side JavaScript
 var overwritesDataJson = <%- JSON.stringify(overwritesData) %>;
@@ -73,22 +78,44 @@ function onSelectVersion(versionId) {
     //If different from selectedVersion, change title, author, and text
     if (versionId === selectedVersion) {
         console.log("No change to selected version");
+    } else if (versionId === 0) {
+        showOriginal();
     } else {
-        console.log(overwritesDataArray);
-        let selectedOverwrite = overwritesDataArray.find(o => {
-            return o.id == versionId;
-        });
-        let titleNode = document.getElementById("title");
-        titleNode.innerText = selectedOverwrite.title;
-
-        let authorNode = document.getElementById("author");
-        authorNode.innerText = selectedOverwrite.userName;
-
-        let textNode = document.getElementById("text");
-        textNode.innerHTML = selectedOverwrite.text_html;
+        showOverwrite(versionId);
     }
 }
 
+function showOverwrite(versionId) {
+    console.log(overwritesDataArray);
+    let selectedOverwrite = overwritesDataArray.find(o => {
+        return o.id == versionId;
+    });
+    let titleNode = document.getElementById("title");
+    titleNode.innerText = selectedOverwrite.title;
+
+    let authorNode = document.getElementById("author");
+    authorNode.innerText = selectedOverwrite.userName;
+
+    let textNode = document.getElementById("text");
+    textNode.innerHTML = selectedOverwrite.text_html;
+
+    selectedVersion = versionId;
+}
+
+function showOriginal() {
+    console.log(sourceDataObject);
+    
+    let titleNode = document.getElementById("title");
+    titleNode.innerText = sourceDataObject.title;
+
+    let authorNode = document.getElementById("author");
+    authorNode.innerText = sourceDataObject.author;
+
+    let textNode = document.getElementById("text");
+    textNode.innerHTML = sourceDataObject.text_html;
+
+    selectedVersion = 0;
+}
 </script>
 
 </html>
